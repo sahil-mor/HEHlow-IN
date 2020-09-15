@@ -254,33 +254,16 @@ export class NewPost extends Component {
                     left : 0,
                     right : 0,
                     top : 0,
-                    height : HEADER_HEIGHT,
+                    height : HEADER_HEIGHT-StatusBar.currentHeight,
+                    backgroundColor : '#362c2b',
+                    width : "100%",
                     zIndex : 1000,
                     elevation : 1000,
+                    transform: [ { translateY : this.headerY }],
                     alignItems : "center",justifyContent : "center",
                     paddingTop : StatusBar.currentHeight,
-                    flexDirection : "column"
-                }} 
+                    flexDirection : "row"}}
                 >
-                    <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
-                        left : 0,
-                        right : 0,
-                        top : 0,}} 
-                    />
-                    <Animated.View style={{position : "absolute",
-                        left : 0,
-                        right : 0,
-                        top : 30,
-                        height : HEADER_HEIGHT-30,
-                        backgroundColor : '#362c2b',
-                        width : "100%",
-                        zIndex : 1000,
-                        elevation : 1000,
-                        transform: [ { translateY : this.headerY }],
-                        alignItems : "center",justifyContent : "center",
-                        paddingTop : StatusBar.currentHeight,
-                        flexDirection : "row"}}
-                    >
                         <Animated.View style={{position : "absolute",left : 0 ,marginTop : -30}}>
                             <TouchableOpacity style={{marginLeft : 20}} onPress={() => this.props.navigation.goBack()  }>
                                 <Ionicons name="md-arrow-round-back" size={30} color="white" />
@@ -301,12 +284,11 @@ export class NewPost extends Component {
                             <TouchableOpacity onPress={()=>{this.createPost()}}> 
                                 <Text style={{color : "white",fontSize : 20}}>Post</Text>
                             </TouchableOpacity>
-                        </Animated.View>
                     </Animated.View>
                 </Animated.View>
                 <Animated.ScrollView
                     bounces={false}
-                    style={[{paddingTop : HEADER_HEIGHT },styles.postcontainer]}
+                    style={[{paddingTop : HEADER_HEIGHT-25 },styles.postcontainer]}
                     scrollEventThrottle={16}
                     onScroll={Animated.event([{
                         nativeEvent : { contentOffset : {y : this.scrollY } }

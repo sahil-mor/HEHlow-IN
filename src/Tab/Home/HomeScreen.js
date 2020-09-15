@@ -364,27 +364,11 @@ export class HomeScreen extends React.Component{
         }}
         >
       <Animated.View style={{
-          position : "absolute",
-          left : 0,
-          right : 0,
-          top : 0,
-          height : HEADER_HEIGHT,
-          zIndex : 1000,
-          elevation : 1000,
-          alignItems : "center",justifyContent : "center",
-          paddingTop : StatusBar.currentHeight,
-          flexDirection : "column"
-      }} >
-          <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
+            position : "absolute",
             left : 0,
             right : 0,
-            top : 0,}} 
-          />
-          <Animated.View style={{position : "absolute",
-            left : 0,
-            right : 0,
-            top : 30,
-            height : HEADER_HEIGHT-30,
+            top : 0,
+            height : HEADER_HEIGHT-StatusBar.currentHeight,
             backgroundColor : '#362c2b',
             width : "100%",
             zIndex : 1000,
@@ -393,7 +377,7 @@ export class HomeScreen extends React.Component{
             alignItems : "center",justifyContent : "center",
             paddingTop : StatusBar.currentHeight,
             flexDirection : "row"}}
-          >
+        >
             <Animated.View style={{flex : 1,marginLeft : 20,marginTop : -30}}>
               <Avatar
                 size={50}
@@ -416,7 +400,6 @@ export class HomeScreen extends React.Component{
                 <FontAwesome name="send-o" size={30} color="white"  />
               </TouchableOpacity> 
             </Animated.View>
-          </Animated.View>
         </Animated.View>
       <Animated.ScrollView
         bounces={false}
@@ -461,8 +444,6 @@ export class HomeScreen extends React.Component{
               style={styles.post}
               source={{uri:item.postData.imageUrl}}
             />
-
-{/* // <MaterialCommunityIcons  name="heart" color="red" size={30}  /> */}
           </TouchableWithoutFeedback>
           <View style={{flexDirection:'row'}}>
               <View>
@@ -558,7 +539,7 @@ const styles = StyleSheet.create({
       borderTopWidth:0.17,
       borderBottomWidth:0.17,
       borderColor:'rgba(245,245,245,0.15)',
-      marginTop : 20,
+      marginTop : 0,
     },
     commentbox:{
       height: 40,

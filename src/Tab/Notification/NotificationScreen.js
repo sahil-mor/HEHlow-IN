@@ -236,37 +236,21 @@ export class NotificationScreen extends React.Component{
                         flex: 1,
                     }}
                 >
-                    <Animated.View style={{
-                        position : "absolute",
-                        left : 0,
-                        right : 0,
-                        top : 0,
-                        height : HEADER_HEIGHT,
-                        zIndex : 1000,
-                        elevation : 1000,
-                        alignItems : "center",justifyContent : "center",
-                        paddingTop : StatusBar.currentHeight,
-                        flexDirection : "column"
-                    }} >
-                        <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
-                            left : 0,
-                            right : 0,
-                            top : 0,}} 
-                        />
-                        <Animated.View style={{position : "absolute",
-                            left : 0,
-                            right : 0,
-                            top : 30,
-                            height : HEADER_HEIGHT-30,
-                            backgroundColor : '#362c2b',
-                            width : "100%",
-                            zIndex : 1000,
-                            elevation : 1000,
-                            transform: [ { translateY : this.headerY }],
-                            alignItems : "center",justifyContent : "center",
-                            paddingTop : StatusBar.currentHeight,
-                            flexDirection : "row"}}
-                        >
+                     <Animated.View style={{
+                    position : "absolute",
+                    left : 0,
+                    right : 0,
+                    top : 0,
+                    height : HEADER_HEIGHT-StatusBar.currentHeight,
+                    backgroundColor : '#362c2b',
+                    width : "100%",
+                    zIndex : 1000,
+                    elevation : 1000,
+                    transform: [ { translateY : this.headerY }],
+                    alignItems : "center",justifyContent : "center",
+                    paddingTop : StatusBar.currentHeight,
+                    flexDirection : "row"}}
+                >
                             <Animated.View style={{position : "absolute",left : width * 0.07,  marginTop : -30}}>
                                 <Avatar
                                     size={50}
@@ -278,11 +262,10 @@ export class NotificationScreen extends React.Component{
                             <Animated.View style={{position : "absolute",left : width * 0.25, flexDirection : "row",justifyContent : "center",alignItems : "center",marginTop : -25}}>
                                 <Text style={{color : "white",fontSize : 22,fontWeight : "bold"}}> Notifications </Text>  
                             </Animated.View>
-                        </Animated.View>
                     </Animated.View>
                     <Animated.ScrollView
                         bounces={false}
-                        style={[{paddingTop : HEADER_HEIGHT },styles.postcontainer]}
+                        style={[{paddingTop : HEADER_HEIGHT-20 },styles.postcontainer]}
                         scrollEventThrottle={16}
                             onScroll={Animated.event([
                             {

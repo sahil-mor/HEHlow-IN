@@ -165,35 +165,19 @@ export class FollowersScreen extends React.Component{
                     }}
                 >
                     <Animated.View style={{
-                    position : "absolute",
-                    left : 0,
-                    right : 0,
-                    top : 0,
-                    height : HEADER_HEIGHT,
-                    zIndex : 1000,
-                    elevation : 1000,
-                    alignItems : "center",justifyContent : "center",
-                    paddingTop : StatusBar.currentHeight,
-                    flexDirection : "column"
-                }} >
-                    <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
-                    left : 0,
-                    right : 0,
-                    top : 0,}} 
-                    />
-                    <Animated.View style={{position : "absolute",
-                    left : 0,
-                    right : 0,
-                    top : 30,
-                    height : HEADER_HEIGHT-30,
-                    backgroundColor : '#362c2b',
-                    width : "100%",
-                    zIndex : 1000,
-                    elevation : 1000,
-                    transform: [ { translateY : this.headerY }],
-                    alignItems : "center",justifyContent : "center",
-                    paddingTop : StatusBar.currentHeight,
-                    flexDirection : "row"}}
+                        position : "absolute",
+                        left : 0,
+                        right : 0,
+                        top : 0,
+                        height : HEADER_HEIGHT-StatusBar.currentHeight,
+                        backgroundColor : '#362c2b',
+                        width : "100%",
+                        zIndex : 1000,
+                        elevation : 1000,
+                        transform: [ { translateY : this.headerY }],
+                        alignItems : "center",justifyContent : "center",
+                        paddingTop : StatusBar.currentHeight,
+                        flexDirection : "row"}}
                     >
                         <Animated.View style={{flex : 1,marginLeft : 20,marginTop : -30}}>
                             <TouchableOpacity style={{marginLeft : 20}} onPress={() => this.props.navigation.goBack()  }>
@@ -212,7 +196,6 @@ export class FollowersScreen extends React.Component{
                         <Animated.View style={{flex : 2,flexDirection : "row",justifyContent : "center",marginTop : -25}}>
                             <Text style={{fontSize : 22,fontWeight : "bold",color : "white",marginLeft : -160}}> Followers  </Text>
                         </Animated.View>
-                    </Animated.View>
                 </Animated.View>
                     <Animated.ScrollView
                             bounces={false}
@@ -309,6 +292,6 @@ const styles = StyleSheet.create({
         marginBottom : 110
     },
     form : {
-        marginTop : 20,marginBottom : 20
+        marginTop : 0,marginBottom : 20
     }
 })

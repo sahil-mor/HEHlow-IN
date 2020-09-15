@@ -313,36 +313,20 @@ export class SendMessageScreen extends React.Component {
                 flex: 1,
               }}
             >
-              <Animated.View style={{
+               <Animated.View style={{
                     position : "absolute",
                     left : 0,
                     right : 0,
                     top : 0,
-                    height : HEADER_HEIGHT,
+                    height : HEADER_HEIGHT-StatusBar.currentHeight,
+                    backgroundColor : '#362c2b',
+                    width : "100%",
                     zIndex : 1000,
                     elevation : 1000,
+                    transform: [ { translateY : this.headerY }],
                     alignItems : "center",justifyContent : "center",
                     paddingTop : StatusBar.currentHeight,
-                    flexDirection : "column"
-                }} >
-                  <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
-                  left : 0,
-                  right : 0,
-                  top : 0,}} 
-                />
-                <Animated.View style={{position : "absolute",
-                  left : 0,
-                  right : 0,
-                  top : 30,
-                  height : HEADER_HEIGHT-30,
-                  backgroundColor : '#362c2b',
-                  width : "100%",
-                  zIndex : 1000,
-                  elevation : 1000,
-                  transform: [ { translateY : this.headerY }],
-                  alignItems : "center",justifyContent : "center",
-                  paddingTop : StatusBar.currentHeight,
-                  flexDirection : "row"}}
+                    flexDirection : "row"}}
                 >
                   <Animated.View style={{position : "absolute",left : width*0.05 ,marginTop : -30}}>
                       <TouchableOpacity  onPress={() => this.props.navigation.goBack()  }>
@@ -360,11 +344,11 @@ export class SendMessageScreen extends React.Component {
                   <Animated.View style={{position : "absolute",left : width * 0.30,marginTop : -30 }}>
                       <Text style={{color : "#fff",fontWeight : "bold",fontSize : 25, }}> {this.state.foundUser.userName} </Text>
                   </Animated.View>
-                </Animated.View>
               </Animated.View>
+              <View style={{height : 80}} />
               <ScrollView 
                 ref={ref => this.scrollView = ref}
-                  style={[{minHeight : height - 500,maxHeight : height - 90 }]}
+                  style={[{minHeight : height-150 }]}
                   onContentSizeChange={(width, height)=>{        
                     this.scrollView.scrollToEnd({animated: true});
                   }}

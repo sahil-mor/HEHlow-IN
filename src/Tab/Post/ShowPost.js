@@ -515,38 +515,21 @@ export class ShowPost extends Component {
         }else{    
             return (
                 <View style={styles.container}> 
-                    <Animated.View  style={{
+                    <Animated.View style={{
                         position : "absolute",
                         left : 0,
                         right : 0,
                         top : 0,
-                        height : HEADER_HEIGHT,
+                        height : HEADER_HEIGHT-StatusBar.currentHeight,
+                        backgroundColor : '#362c2b',
+                        width : "100%",
                         zIndex : 1000,
                         elevation : 1000,
+                        transform: [ { translateY : this.headerY }],
                         alignItems : "center",justifyContent : "center",
                         paddingTop : StatusBar.currentHeight,
-                        flexDirection : "column"
-                        }}
+                        flexDirection : "row"}}
                     >
-                        <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
-                            left : 0,
-                            right : 0,
-                            top : 0,}} 
-                        />
-                        <Animated.View style={{position : "absolute",
-                            left : 0,
-                            right : 0,
-                            top : 30,
-                            height : HEADER_HEIGHT-30,
-                            backgroundColor : '#362c2b',
-                            width : "100%",
-                            zIndex : 1000,
-                            elevation : 1000,
-                            transform: [ { translateY : this.headerY }],
-                            alignItems : "center",justifyContent : "center",
-                            paddingTop : StatusBar.currentHeight,
-                            flexDirection : "row"}}
-                        >
                         <Animated.View style={{ position : "absolute", left : width * 0.03 ,marginTop : -30}}>
                             <TouchableOpacity style={{marginLeft : 20}} onPress={() => this.props.navigation.goBack()  }>
                                 <Ionicons name="md-arrow-round-back" size={30} color="white" />
@@ -564,11 +547,10 @@ export class ShowPost extends Component {
                             justifyContent : "center",alignItems : "center",marginTop : -25,}}>
                             <Text style={{fontSize : 24,fontWeight : "bold",color : "white"}}> {this.state.user.userName} </Text>
                         </Animated.View>
-                    </Animated.View>
                 </Animated.View>
                     <Animated.ScrollView
                         bounces={false}
-                        style={[{paddingTop : HEADER_HEIGHT }]}
+                        style={[{paddingTop : HEADER_HEIGHT-20 }]}
                         scrollEventThrottle={16}
                             onScroll={Animated.event([
                             {

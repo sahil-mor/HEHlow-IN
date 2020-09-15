@@ -112,7 +112,7 @@ export class SeeOtherAccount extends React.Component {
     this.state = {
       user : null,userId : null,calledOnce : false,foundUser : null,foundUserId : null,objectIdUser : null,objectIdOther : null
       , relation : "Follow",pictureIcon : true,tagIcon : false,sentDataRequestData : [],updating : false,waiting : true,
-      closeBtnTop : 15,bottomSheetHeight : 50,selectedTab : 0,showImages : [],profileImages : [],
+      closeBtnTop : 0,bottomSheetHeight : 50,selectedTab : 0,showImages : [],profileImages : [],
     }
   }
   callFunction = (uid,toUpdate) => {
@@ -287,43 +287,43 @@ export class SeeOtherAccount extends React.Component {
     // willNameULater -> it must be 0
     // willNameULater2 -> it must be 1
     if(willNameULater.length == 0 && willNameULater2.length == 1){
-      this.setState({relation : "unfollow",bottomSheetHeight : 100,closeBtnTop : -5 })
+      this.setState({relation : "unfollow",bottomSheetHeight : 100,closeBtnTop : -20 })
     }
     //only other -> user => relation = follow back, options - follow back and to cancel following
     // willNameULater  -> it must be 1
     // willNameULater2 -> it must be 0
     if(willNameULater.length == 1 && willNameULater2 == 0){
-      this.setState({ relation : "Follow Back",bottomSheetHeight : 100,closeBtnTop : -5  })
+      this.setState({ relation : "Follow Back",bottomSheetHeight : 100,closeBtnTop : -20  })
     }
     // user has sent follow request to other => options => cancel request
     if(isSentRequest){
-      this.setState({ relation : "Sent Follow Request",bottomSheetHeight : 50,closeBtnTop : 15  })
+      this.setState({ relation : "Sent Follow Request",bottomSheetHeight : 50,closeBtnTop : 0  })
     }
     // user has received follow request from other => options => accept or decline request
     if(isReceivedRequest){
-      this.setState({ relation : "Received Follow Request",bottomSheetHeight : 100,closeBtnTop : -5  })
+      this.setState({ relation : "Received Follow Request",bottomSheetHeight : 100,closeBtnTop : -20  })
     }
     // to check if user <- other and user has sent request for follow back => options -> cancel follow request
     // willNameULater -> it must be 1 and sentRequest must be true
     if(willNameULater.length == 1 && isSentRequest){
-      this.setState({ relation : "Unfollow and Sent Request",bottomSheetHeight : 100,closeBtnTop : -5  })
+      this.setState({ relation : "Unfollow and Sent Request",bottomSheetHeight : 100,closeBtnTop : -20  })
     }
     //both user -> <- other => relation = "both ways",options = following and unfollow and cancel following
     // willNameULater  -> it must be 1
     // willNameULater2 -> it must be 1
     if(willNameULater.length == 1 && willNameULater2.length == 1){
-      this.setState({ relation : "Both Ways",bottomSheetHeight : 150,closeBtnTop : -25  })
+      this.setState({ relation : "Both Ways",bottomSheetHeight : 150,closeBtnTop : -50  })
     }
     // user -> other => means present in following and has received request => options -> following and accept or decline request
     if(willNameULater2.length == 1 && isReceivedRequest ){
-      this.setState({ relation : "Following and Received Request",bottomSheetHeight : 150,closeBtnTop : -25  })
+      this.setState({ relation : "Following and Received Request",bottomSheetHeight : 150,closeBtnTop : -50  })
     }
     this.setState({ waiting : false,updating : false })
   }
   //rendering element based on relations
   relationFollow = () => {
     return(
-      <View style={[STYLES.bottomSheet,{ height : 50 }]}>
+      <View style={[STYLES.bottomSheet,{ height : 50,marginBottom : 60 }]}>
         <TouchableOpacity style={{flex : 1,justifyContent : "center",alignItems : "center"}}
           onPress={()=>{this.sendFollowRequest()}}  >
             <Text style={{color : "#94f00a",fontWeight : "bold",marginLeft : -25}}> Send Follow Request </Text>
@@ -333,7 +333,7 @@ export class SeeOtherAccount extends React.Component {
   }
   relationUnfollow = () => {
     return(
-      <View style={[STYLES.bottomSheet,{ height : 100 }]}>
+      <View style={[STYLES.bottomSheet,{ height : 100,marginBottom : 60 }]}>
         <TouchableOpacity onPress={()=>{{ }} } style={[styles.eachNumber,styles.hr]} >
             <Text style={{color : "white",fontWeight : "bold",marginLeft : -25}}> Following </Text>
         </TouchableOpacity>
@@ -345,7 +345,7 @@ export class SeeOtherAccount extends React.Component {
   }
   relationFollowBack = () => {
     return(
-      <View style={[STYLES.bottomSheet,{ height : 100 }]}>
+      <View style={[STYLES.bottomSheet,{ height : 100,marginBottom : 60 }]}>
         <TouchableOpacity onPress={()=>{{ this.followBack() }} } style={[styles.eachNumber,styles.hr]} >
             <Text style={{color : "#2cde3e",fontWeight : "bold",marginLeft : -25}}> Follow Back </Text>
         </TouchableOpacity>
@@ -357,7 +357,7 @@ export class SeeOtherAccount extends React.Component {
   }
   relationBothWays = () => {
     return(
-      <View style={[STYLES.bottomSheet,{ height : 150 }]}>
+      <View style={[STYLES.bottomSheet,{ height : 150,marginBottom : 60 }]}>
         <TouchableOpacity onPress={()=>{{ }} } style={[styles.eachNumber,styles.hr]} >
             <Text style={{color : "white",fontWeight : "bold",marginLeft : -25}}> Following </Text>
         </TouchableOpacity>
@@ -372,7 +372,7 @@ export class SeeOtherAccount extends React.Component {
   }
   relationSentRequest = () => {
     return(
-      <View style={[STYLES.bottomSheet,{ height : 50 }]}>
+      <View style={[STYLES.bottomSheet,{ height : 50,marginBottom : 60 }]}>
         <TouchableOpacity onPress={()=>{this.cancelFollowRequest()}}  style={styles.eachNumber} >
             <Text style={{color : "#de2c2c",fontWeight : "bold",marginLeft : -25}}> Cancel Sent Request </Text>
         </TouchableOpacity>
@@ -381,7 +381,7 @@ export class SeeOtherAccount extends React.Component {
   }
   relationReceivedRequest = () => {
     return(
-      <View style={[STYLES.bottomSheet,{ height : 100 }]}>
+      <View style={[STYLES.bottomSheet,{ height : 100,marginBottom : 60 }]}>
         <TouchableOpacity onPress={()=>{this.acceptFollowRequest()}}  style={[styles.eachNumber,styles.hr]} >
             <Text style={{color : "#94f00a",fontWeight : "bold",marginLeft : -25}}> Accept Request </Text>
         </TouchableOpacity>
@@ -393,7 +393,7 @@ export class SeeOtherAccount extends React.Component {
   }
   relationUnfollowSentRequest = () => {
     return(
-      <View style={[STYLES.bottomSheet,{ height : 100 }]}>
+      <View style={[STYLES.bottomSheet,{ height : 100,marginBottom : 60 }]}>
         <TouchableOpacity onPress={()=>{this.removeAsFollower()}}  style={[styles.eachNumber,styles.hr]} >
           <Text style={{color : "#de2c2c",fontWeight : "bold",marginLeft : -25}}> Remove As Follower </Text>
         </TouchableOpacity>
@@ -405,7 +405,7 @@ export class SeeOtherAccount extends React.Component {
   }
   relationFollowingReceived = () => {
     return(
-      <View style={[STYLES.bottomSheet,{ height : 150 }]}>
+      <View style={[STYLES.bottomSheet,{ height : 150,marginBottom : 60 }]}>
         <TouchableOpacity onPress={()=>{}}  style={[styles.eachNumber,styles.hr]} >
           <Text style={{color : "#fff",fontWeight : "bold",marginLeft : -25}}> Following </Text>
         </TouchableOpacity>
@@ -970,43 +970,27 @@ export class SeeOtherAccount extends React.Component {
               }}
                 >
               <Animated.View style={{
-                  position : "absolute",
-                  left : 0,
-                  right : 0,
-                  top : 0,
-                  height : HEADER_HEIGHT,
-                  zIndex : 1000,
-                  elevation : 1000,
-                  alignItems : "center",justifyContent : "center",
-                  paddingTop : StatusBar.currentHeight,
-                  flexDirection : "column"
-              }} >
-                  <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
-                  left : 0,
-                  right : 0,
-                  top : 0,}} 
-                />
-                <Animated.View style={{position : "absolute",
-                  left : 0,
-                  right : 0,
-                  top : 30,
-                  height : HEADER_HEIGHT-30,
-                  backgroundColor : '#362c2b',
-                  width : "100%",
-                  zIndex : 1000,
-                  elevation : 1000,
-                  transform: [ { translateY : this.headerY }],
-                  alignItems : "center",justifyContent : "center",
-                  paddingTop : StatusBar.currentHeight,opacity : this.backgroundOpacity,
-                  flexDirection : "row"}}
+                    position : "absolute",
+                    left : 0,
+                    right : 0,
+                    top : 0,
+                    height : HEADER_HEIGHT-StatusBar.currentHeight,
+                    backgroundColor : '#362c2b',
+                    width : "100%",
+                    zIndex : 1000,
+                    elevation : 1000,
+                    transform: [ { translateY : this.headerY }],
+                    alignItems : "center",justifyContent : "center",
+                    paddingTop : StatusBar.currentHeight,
+                    flexDirection : "row"}}
                 >
                   <Animated.View style={{flex : 1,marginLeft : 20,marginTop : -30}}>
-                  <Avatar
-                      size={50}
-                      rounded
-                      source={ this.state.user.userProfile  ? { uri : this.state.user.userProfile } : 
-                      require("../../../assets/account.png") }
-                  />
+                    <Avatar
+                        size={50}
+                        rounded
+                        source={ this.state.user.userProfile  ? { uri : this.state.user.userProfile } : 
+                        require("../../../assets/account.png") }
+                    />
                   </Animated.View>
                   <Animated.View style={{flex : 1,position: "absolute",left : width*0.2}}>
                       <Text style={{color : "white",fontWeight : "bold",fontSize : 25}}> {this.state.user.userName} </Text>
@@ -1020,10 +1004,9 @@ export class SeeOtherAccount extends React.Component {
                     </TapGestureHandler>    
                   </Animated.View>
               </Animated.View>
-              </Animated.View>
               <Animated.ScrollView
                   bounces={false}
-                  style={[{paddingTop : HEADER_HEIGHT,opacity : this.backgroundOpacity },styles.postcontainer]}
+                  style={[{paddingTop : HEADER_HEIGHT-10,opacity : this.backgroundOpacity }]}
                   scrollEventThrottle={16}
                   onScroll={Animated.event([
                   {
@@ -1047,7 +1030,7 @@ export class SeeOtherAccount extends React.Component {
                           />
                           <Text style={{color:'rgba(245,245,245,0.75)',marginVertical:10,fontSize : 20}}> {this.state.foundUser.name} </Text>
                       </View>
-                      <View style={{marginLeft : -20}}>
+                      <View style={{marginLeft : 0}}>
                           <TouchableOpacity style={styles.button}>
                               <View style={{justifyContent:'center',alignItems:'center'}}>
                                   <Text style={{color:'rgba(245,245,245,0.75)',fontWeight:'bold',fontSize:15}}>{this.state.foundUser.numPosts}</Text>
@@ -1167,7 +1150,7 @@ export class SeeOtherAccount extends React.Component {
                   }} 
               >
                 <TapGestureHandler onHandlerStateChange={this.onCloseState}>
-                    <Animated.View style={[STYLES.closeBtn,{ top :this.state.closeBtnTop }]}>
+                    <Animated.View style={[STYLES.closeBtn,{ top : this.state.closeBtnTop }]}>
                         <Animated.Text style={{fontSize : 15,
                         transform : [ { rotate : concat(this.rotateCross,'deg') } ]}}>X</Animated.Text>
                     </Animated.View>

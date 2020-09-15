@@ -88,60 +88,42 @@ export class SearchScreen extends React.Component{
         }
         return(
             <View style={[{flex : 1, backgroundColor : "lightgrey",justifyContent : "center",alignItems : "center"},STYLES.generalPage]}>
-                <Animated.View style={{
+                 <Animated.View style={{
                     position : "absolute",
                     left : 0,
                     right : 0,
                     top : 0,
-                    height : HEADER_HEIGHT,
+                    height : HEADER_HEIGHT-StatusBar.currentHeight,
+                    backgroundColor : '#362c2b',
+                    width : "100%",
                     zIndex : 1000,
                     elevation : 1000,
                     transform: [ { translateY : this.headerY }],
                     alignItems : "center",justifyContent : "center",
                     paddingTop : StatusBar.currentHeight,
-                    flexDirection : "column"
-                }} >
-                     <Animated.View style={{backgroundColor : "white",height : 25,  position : "absolute",
-                        left : 0,
-                        right : 0,
-                        top : 0,}} 
-                    />
-                    <Animated.View style={{position : "absolute",
-                        left : 0,
-                        right : 0,
-                        top : 25,
-                        height : HEADER_HEIGHT-25,
-                        backgroundColor : '#362c2b',
-                        width : "100%",
-                        zIndex : 1000,
-                        elevation : 1000,
-                        transform: [ { translateY : this.headerY }],
-                        alignItems : "center",justifyContent : "center",
-                        paddingTop : StatusBar.currentHeight,
-                        flexDirection : "row"}}
-                    >
-                        <Animated.View style={{flex : 1,marginLeft : 20,marginTop : -25}}>
-                            <Avatar
-                                size={50}
-                                rounded
-                                source={ this.state.user.userProfile ? { uri : this.state.user.userProfile } : 
-                                require("../../../assets/account.png") }
-                            />
-                        </Animated.View>
-                        <Animated.View style={{flex : 5,flexDirection : "row",justifyContent : "center",alignItems : "center",marginTop : -25}}>
-                            <TextInput 
-                                placeholder="SEARCH"
-                                style={[STYLES.textInput,{flex : 2}]}
-                                placeholderTextColor="black" 
-                                value={this.state.search} onChangeText={ search => { this.setState({ search }) } }
-                            />
-                            <FontAwesome style={{marginRight : 20}} onPress={() => {this.search(this.state.search)} } name="search" size={30} color="white" />
-                        </Animated.View>
+                    flexDirection : "row"}}
+                >
+                    <Animated.View style={{flex : 1,marginLeft : 20,marginTop : -25}}>
+                        <Avatar
+                            size={50}
+                            rounded
+                            source={ this.state.user.userProfile ? { uri : this.state.user.userProfile } : 
+                            require("../../../assets/account.png") }
+                        />
+                    </Animated.View>
+                    <Animated.View style={{flex : 5,flexDirection : "row",justifyContent : "center",alignItems : "center",marginTop : -25}}>
+                        <TextInput 
+                            placeholder="SEARCH"
+                            style={[STYLES.textInput,{flex : 2}]}
+                            placeholderTextColor="black" 
+                            value={this.state.search} onChangeText={ search => { this.setState({ search }) } }
+                        />
+                        <FontAwesome style={{marginRight : 20}} onPress={() => {this.search(this.state.search)} } name="search" size={30} color="white" />
                     </Animated.View>
                 </Animated.View>
                 <Animated.ScrollView
                     bounces={false}
-                    style={[{paddingTop : HEADER_HEIGHT,width : width}]}
+                    style={[{paddingTop : HEADER_HEIGHT,width : width,marginTop : -20}]}
                     scrollEventThrottle={16}
                     onScroll={Animated.event([
                     {

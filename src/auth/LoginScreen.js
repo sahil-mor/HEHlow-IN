@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet,Text,View,Dimensions,TextInput,KeyboardAvoidingView,TouchableOpacity,TouchableWithoutFeedback} from 'react-native'
+import {StyleSheet,StatusBar,Text,View,Dimensions,TextInput,KeyboardAvoidingView,TouchableOpacity,TouchableWithoutFeedback} from 'react-native'
 import {Asset} from 'expo-asset'
 import {AppLoading} from 'expo'
 import {Spinner} from 'native-base'
@@ -187,6 +187,7 @@ export class LoginScreen extends React.Component {
                 <Animated.View style={{...StyleSheet.absoluteFill,transform : [{
                     translateY : this.bgY
                 }]}}>
+                    <StatusBar  barStyle="light-content" translucent={true} />
                     <GestureRecognizer
                         onSwipe={(direction, state) => this.onSwipe(direction, state)}
                         config={config}

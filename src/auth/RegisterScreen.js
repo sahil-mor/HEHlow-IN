@@ -219,7 +219,7 @@ export class RegisterScreen extends React.Component {
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white', justifyContent: 'flex-end', }} behavior="height" enabled>
                     <Animated.View style={{...StyleSheet.absoluteFill,transform : [{
                         translateY : this.bgY
-                    }]}}>
+                    }]}}>        
                         <GestureRecognizer
                             onSwipe={(direction, state) => this.onSwipe(direction, state)}
                             config={config}

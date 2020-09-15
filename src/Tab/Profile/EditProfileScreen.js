@@ -11,7 +11,7 @@ import dateformat from 'dateformat'
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import {Header,Form,Item,Input,Label, Thumbnail,Spinner } from 'native-base'
+import {Form,Item,Input,Label,Spinner } from 'native-base'
 import uuid from 'react-native-uuid'
 import { Avatar } from 'react-native-elements';
 const HEADER_HEIGHT = Platform.OS == 'ios' ? 115 : 70+StatusBar.currentHeight
@@ -202,37 +202,21 @@ export class EditProfileScreen extends React.Component{
         }
         return(
             <View style={STYLES.generalPage}>
-                <Animated.View style={{
+                 <Animated.View style={{
                     position : "absolute",
                     left : 0,
                     right : 0,
                     top : 0,
-                    height : HEADER_HEIGHT,
+                    height : HEADER_HEIGHT-StatusBar.currentHeight,
+                    backgroundColor : '#362c2b',
+                    width : "100%",
                     zIndex : 1000,
                     elevation : 1000,
+                    transform: [ { translateY : this.headerY }],
                     alignItems : "center",justifyContent : "center",
                     paddingTop : StatusBar.currentHeight,
-                    flexDirection : "column"
-                }} >
-                    <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
-                        left : 0,
-                        right : 0,
-                        top : 0,}} 
-                    />
-                    <Animated.View style={{position : "absolute",
-                        left : 0,
-                        right : 0,
-                        top : 30,
-                        height : HEADER_HEIGHT-30,
-                        backgroundColor : '#362c2b',
-                        width : "100%",
-                        zIndex : 1000,
-                        elevation : 1000,
-                        transform: [ { translateY : this.headerY }],
-                        alignItems : "center",justifyContent : "center",
-                        paddingTop : StatusBar.currentHeight,
-                        flexDirection : "row"}}
-                    >
+                    flexDirection : "row"}}
+                >
                         <Animated.View style={{flex : 1,marginLeft : 20,marginTop : -30}}>
                             <TouchableOpacity style={{marginLeft : 20}} onPress={() => this.props.navigation.navigate("Profile")  }>
                                 <Ionicons name="md-arrow-round-back" size={30} color="white" />
@@ -241,11 +225,10 @@ export class EditProfileScreen extends React.Component{
                         <Animated.View style={{flex : 3,flexDirection : "row",justifyContent : "center",marginTop : -25}}>
                             <Text style={{fontSize : 22,fontWeight : "bold",color : "white",marginLeft : -170}}> Edit Profile </Text>
                         </Animated.View>
-                    </Animated.View>
                 </Animated.View>
                 <Animated.ScrollView
                     bounces={false}
-                    style={[{paddingTop : HEADER_HEIGHT }]}
+                    style={[{paddingTop : HEADER_HEIGHT-20 }]}
                     scrollEventThrottle={16}
                     onScroll={Animated.event([
                     {

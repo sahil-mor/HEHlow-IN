@@ -207,36 +207,20 @@ export  class ProfileScreen extends React.Component{
         }
         return (
             <View style={styles.container}> 
-              <Animated.View  style={{
-                  position : "absolute",
-                  left : 0,
-                  right : 0,
-                  top : 0,
-                  height : HEADER_HEIGHT,
-                  zIndex : 1000,
-                  elevation : 1000,
-                  alignItems : "center",justifyContent : "center",opacity : this.backgroundOpacity,
-                  paddingTop : StatusBar.currentHeight,
-                  flexDirection : "column"
-              }}>
-                  <Animated.View style={{backgroundColor : "white",height : 30,  position : "absolute",
+               <Animated.View style={{
+                    position : "absolute",
                     left : 0,
                     right : 0,
-                    top : 0,}} 
-                  />
-                  <Animated.View style={{position : "absolute",
-                  left : 0,
-                  right : 0,
-                  top : 30,
-                  height : HEADER_HEIGHT-30,
-                  backgroundColor : '#362c2b',
-                  width : "100%",
-                  zIndex : 1000,
-                  elevation : 1000,
-                  transform: [ { translateY : this.headerY }],
-                  alignItems : "center",justifyContent : "center",
-                  paddingTop : StatusBar.currentHeight,
-                  flexDirection : "row"}}
+                    top : 0,
+                    height : HEADER_HEIGHT-StatusBar.currentHeight,
+                    backgroundColor : '#362c2b',
+                    width : "100%",
+                    zIndex : 1000,
+                    elevation : 1000,
+                    transform: [ { translateY : this.headerY }],
+                    alignItems : "center",justifyContent : "center",
+                    paddingTop : StatusBar.currentHeight,
+                    flexDirection : "row"}}
                 >
                     <Animated.View style={{ position : "absolute", left : width * 0.08 ,marginTop : -30}}>
                       <Avatar
@@ -258,11 +242,10 @@ export  class ProfileScreen extends React.Component{
                         </Animated.View>
                     </TapGestureHandler>    
                   </Animated.View>
-                  </Animated.View>
                 </Animated.View>
               <Animated.ScrollView
                   bounces={false}
-                  style={[{paddingTop : HEADER_HEIGHT,opacity : this.backgroundOpacity, }]}
+                  style={[{paddingTop : HEADER_HEIGHT-20,opacity : this.backgroundOpacity, }]}
                   scrollEventThrottle={16}
                   onScroll={Animated.event([
                   {
@@ -270,7 +253,7 @@ export  class ProfileScreen extends React.Component{
                   }
                   ])}
               >
-                    <View style={{flexDirection:'row',marginLeft : 20,}}>
+                    <View style={{flexDirection:'row',marginLeft : 0,}}>
                         <View style={{marginVertical:15}}>
                             <Avatar
                                 size={85}
@@ -282,10 +265,10 @@ export  class ProfileScreen extends React.Component{
                         </View>
                         <View>
                             <TouchableOpacity style={styles.button}>
-                            <View style={{justifyContent:'center',alignItems:'center'}}>
-                            <Text style={{color:'rgba(245,245,245,0.75)',fontWeight:'bold',fontSize:15}}>{this.state.user.numPosts}</Text>
-                            </View>
-                            <Text style={{color:'rgba(245,245,245,0.75)',fontSize:15}}>Posts</Text>
+                              <View style={{justifyContent:'center',alignItems:'center'}}>
+                                <Text style={{color:'rgba(245,245,245,0.75)',fontWeight:'bold',fontSize:15}}>{this.state.user.numPosts}</Text>
+                              </View>
+                              <Text style={{color:'rgba(245,245,245,0.75)',fontSize:15}}>Posts</Text>
                             </TouchableOpacity>
                         </View>
                         <View>
