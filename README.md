@@ -4,7 +4,7 @@ An all in one social app. Chatting, sharing moments and showing your best, emoti
 <br />
 
 # Video
-<a href="https://drive.google.com/file/d/1-JzEqjMXJ14ZoxqvU5u1HxM4US0eFm2A/view" target="_blank"> Video for HEHlow-IN. </a>
+<a href="https://drive.google.com/file/d/1-JzEqjMXJ14ZoxqvU5u1HxM4US0eFm2A/view" > Video for HEHlow-IN. </a>
 
 <br />
  
