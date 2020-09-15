@@ -1,14 +1,15 @@
 # HEHlow-IN
 An all in one social app. Chatting, sharing moments and showing your best, emotional and worst sides to your beloved ones
 
-## Video
+<br />
+
+# Video
 <a href="https://drive.google.com/file/d/1-JzEqjMXJ14ZoxqvU5u1HxM4US0eFm2A/view" target="_blank"> Video for HEHlow-IN. </a>
 
 <br />
-<br />
  
-## Screenshots
-# Authentication
+# Screenshots
+## Authentication
 <table>
   <tr>
     <td align="center"><img src="https://github.com/sahil-mor/HEHlow-IN/blob/master/Screenshots/Signin.jpg" width="400px;"alt=""/></td>
@@ -18,7 +19,7 @@ An all in one social app. Chatting, sharing moments and showing your best, emoti
 
 <br />
 
-# HomeScreen SearchScreen
+## HomeScreen
 <table>
   <tr>
     <td align="center"><img src="https://github.com/sahil-mor/HEHlow-IN/blob/master/Screenshots/HomeScreen.jpg" width="400px;"alt=""/></td>
@@ -28,7 +29,7 @@ An all in one social app. Chatting, sharing moments and showing your best, emoti
 
 <br />
 
-# ProfileScreen
+## ProfileScreen
 <table>
   <tr>
     <td align="center"><img src="https://github.com/sahil-mor/HEHlow-IN/blob/master/Screenshots/ProfileScreen.jpg" width="400px;"alt=""/></td>
@@ -38,7 +39,7 @@ An all in one social app. Chatting, sharing moments and showing your best, emoti
 
 <br />
     
-# MessageScreen
+## MessageScreen
 <table>
   <tr>
     <td align="center"><img src="https://github.com/sahil-mor/HEHlow-IN/blob/master/Screenshots/MessageScreen.jpg" width="400px;"alt=""/></td>
@@ -48,7 +49,7 @@ An all in one social app. Chatting, sharing moments and showing your best, emoti
 
 <br />
     
-# OtherScreens
+## OtherScreens
 <table>
   <tr>
     <td align="center"><img src="https://github.com/sahil-mor/HEHlow-IN/blob/master/Screenshots/CreatePost.jpg" width="400px;"alt=""/></td>
