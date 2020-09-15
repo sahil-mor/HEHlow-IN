@@ -87,6 +87,6 @@ Database - <a href="https://firebase.google.com/"> Firebase </a>  <br />
 <br />
 
 # Author
-Sahil Mor<br />
+<a href="https://sahilmor.herokuapp.com/" > Sahil Mor </a> <br />
 Icon by <a href="https://www.instagram.com/chandrapr_s/?igshid=kjqosdkrsmi8"> Chandraprakash </a>
 
