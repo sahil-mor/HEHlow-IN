@@ -1,6 +1,12 @@
 # HEHlow-IN
 An all in one social app. Chatting, sharing moments and showing your best, emotional and worst sides to your beloved ones
 
+## Video
+<a href="https://drive.google.com/file/d/1-JzEqjMXJ14ZoxqvU5u1HxM4US0eFm2A/view" target="_blank"> Video for HEHlow-IN. </a>
+
+<br />
+<br />
+ 
 ## Screenshots
 # Authentication
 <table>
